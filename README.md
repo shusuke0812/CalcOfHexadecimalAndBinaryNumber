@@ -11,5 +11,5 @@
 - 2進数・16進数の論理演算、加算
 
 ## UI
-- [Figma](figma.com/file/Xr2kKzgqgDiwdy3T64H4ZY/Prototype-Catalog?node-id=35%3A3)  
+- [Figma](https://www.figma.com/file/Xr2kKzgqgDiwdy3T64H4ZY/Prototype-Catalog?node-id=35%3A3)  
 

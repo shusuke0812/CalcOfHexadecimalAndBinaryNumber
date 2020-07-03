@@ -7,6 +7,7 @@ var inputCalc = []
 var outputCalc = 0
 var inputBinCalc = 0
 var inputHexCalc = 0
+var radioSelected = ""
 
 const tapBinBtn = document.getElementById("js-tapBinBtn")
 const tapDecBtn = document.getElementById("js-tapDecBtn")
@@ -73,7 +74,8 @@ const getRadioValue = () => {
 
 	for (var i=0; i<radios.length; i++) {
 		if (radios[i].checked) {
-			console.log("選択されたラジオボタン: ", radios[i].value)
+			radioSelected = radios[i].value
+			console.log("選択されたラジオボタン: ", radioSelected)
 		}
 	}
 }

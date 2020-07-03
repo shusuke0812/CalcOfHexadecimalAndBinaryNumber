@@ -12,13 +12,16 @@ const tapBinBtn = document.getElementById("js-tapBinBtn")
 const tapDecBtn = document.getElementById("js-tapDecBtn")
 const tapHexBtn = document.getElementById("js-tapHexBtn")
 
-const orBtn = document.getElementById("js-orBtn")
-const andBtn = document.getElementById("js-andBtn")
-const notBtn = document.getElementById("js-andBtn")
-const xorBtn = document.getElementById("js-xorBtn")
-const addBtn = document.getElementById("js-addBtn")
+const tapOrBtn = document.getElementById("js-orBtn")
+const tapAndBtn = document.getElementById("js-andBtn")
+const tapNotBtn = document.getElementById("js-andBtn")
+const tapXorBtn = document.getElementById("js-xorBtn")
+const tapAddBtn = document.getElementById("js-addBtn")
 
-// 変換 
+/** 
+ * 変換
+ */
+
 // TODO:エラーハンドリング
 // 2進数 -> 10進数・16進数
 tapBinBtn.addEventListener('click', () => {
@@ -59,3 +62,24 @@ tapHexBtn.addEventListener('click', () => {
 	console.log("[DEBUG]Hex->Dec: ", inputDec)
 	console.log("[DEBUG]Hex->Bin: ", inputBin)
 })
+
+/**
+ * 計算
+ */
+
+// 選択されたラジオボタンの情報を取得する
+const getRadioValue = () => {
+	var radios = document.getElementsByName("base_num")
+
+	for (var i=0; i<radios.length; i++) {
+		if (radios[i].checked) {
+			console.log("選択されたラジオボタン: ", radios[i].value)
+		}
+	}
+}
+/*
+tapAddBtn.addEventListener('click', () => {
+	var = "js-inputAny"
+})
+*/
+

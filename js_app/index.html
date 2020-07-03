@@ -30,19 +30,19 @@
 			<h3>計算</h3>
 			<h4>基数選択</h4>
 			<p>
-			<input type="radio" name="base_num" value="bin">2進数
-			<input type="radio" name="base_num" value="hex" checked>16進数
+			<input type="radio" name="base_num" value="bin" onchange="getRadioValue()">2進数
+			<input type="radio" name="base_num" value="hex" onchange="getRadioValue()" checked>16進数
 			<p>
-				<button id="js-orBtn">OR</button>
-				<button id="js-andBtn">AND</button>
-				<button id="js-notBtn">NOT</button>
-				<button id="js-orBtn">XOR</button>
-				<button id="js-addBtn">ADD</button>
+				<button id="js-tapOrBtn">OR</button>
+				<button id="js-tapAndBtn">AND</button>
+				<button id="js-tapNotBtn">NOT</button>
+				<button id="js-tapOrBtn">XOR</button>
+				<button id="js-tapAddBtn">ADD</button>
 			</p>
 			</p>
 			<h4>出力</h4>
 			<div>
-				<p>11111000000000010000</p>
+				<p id="output">-- 計算結果を表示 --</p>
 			</div>
 			<h4>入力</h4>
 			<input id="js-inputAny1" type="text">

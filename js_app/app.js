@@ -1,10 +1,12 @@
-// 変数定義
+/**
+ * 変数定義
+ */
 var inputBin = 0
 var inputDec = 0
 var inputHex = 0
 
-var inputCalc = []
-var outputCalc = 0
+var inputSum = 0
+var outputAns = 0
 var inputBinCalc = 0
 var inputHexCalc = 0
 var radioSelected = ""
@@ -13,11 +15,11 @@ const tapBinBtn = document.getElementById("js-tapBinBtn")
 const tapDecBtn = document.getElementById("js-tapDecBtn")
 const tapHexBtn = document.getElementById("js-tapHexBtn")
 
-const tapOrBtn = document.getElementById("js-orBtn")
-const tapAndBtn = document.getElementById("js-andBtn")
-const tapNotBtn = document.getElementById("js-andBtn")
-const tapXorBtn = document.getElementById("js-xorBtn")
-const tapAddBtn = document.getElementById("js-addBtn")
+const tapOrBtn = document.getElementById("js-tapOrBtn")
+const tapAndBtn = document.getElementById("js-tapAndBtn")
+const tapNotBtn = document.getElementById("js-tapAndBtn")
+const tapXorBtn = document.getElementById("js-tapXorBtn")
+const tapAddBtn = document.getElementById("js-tapAddBtn")
 
 /** 
  * 変換
@@ -72,16 +74,35 @@ tapHexBtn.addEventListener('click', () => {
 const getRadioValue = () => {
 	var radios = document.getElementsByName("base_num")
 
-	for (var i=0; i<radios.length; i++) {
+	for (let i=0; i<radios.length; i++) {
 		if (radios[i].checked) {
 			radioSelected = radios[i].value
 			console.log("選択されたラジオボタン: ", radioSelected)
 		}
 	}
 }
-/*
+
 tapAddBtn.addEventListener('click', () => {
-	var = "js-inputAny"
+	const inputBaseId = "js-inputAny"
+	if (radioSelected === "bin") {
+		// TODO:inputで入力のあるもののみ計算するように実装
+		for (let i=1; i<3; i++) {
+			var inputId = inputBaseId + `${i}`
+			inputBinCalc = document.getElementById(inputId).value
+		  var num = parseInt(inputBinCalc, 2)
+			inputSum += num
+		}
+		inputSum = parseInt(inputSum, 10).toString(2)
+	} else {
+		for (let i=1; i<3; i++) {
+			var inputId = inputBaseId + `${i}`
+			inputBinCalc = document.getElementById(inputId).value
+			var num = parseInt(inputBinCalc, 16)
+			inputSum += num
+		}
+		inputSum = parseInt(inputSum, 10).toString(16)
+	}
+	console.log("[DEBUG]Calc result: ", inputSum)
 })
-*/
+
 

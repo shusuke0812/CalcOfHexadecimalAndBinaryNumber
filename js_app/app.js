@@ -82,6 +82,7 @@ const getRadioValue = () => {
 	}
 }
 
+// 加算
 tapAddBtn.addEventListener('click', () => {
 	const inputBaseId = "js-inputAny"
 	if (radioSelected === "bin") {
@@ -102,7 +103,9 @@ tapAddBtn.addEventListener('click', () => {
 		}
 		inputSum = parseInt(inputSum, 10).toString(16)
 	}
+	document.getElementById("output").textContent = inputSum
 	console.log("[DEBUG]Calc result: ", inputSum)
+	inputSum = 0
 })
 
 

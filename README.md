@@ -3,7 +3,7 @@
 　
 ## 開発環境  
 - MacOS Catalina version 10.15  
-- npm 6.13.4 
+- npm version 6.13.4 
 - node version 12.16.0 
 
 ## できること
@@ -13,3 +13,5 @@
 ## UI
 - [Figma](https://www.figma.com/file/Xr2kKzgqgDiwdy3T64H4ZY/Prototype-Catalog?node-id=35%3A3)  
 
+## ToDo
+- [GitProject](https://github.com/shusuke0812/CalcOfHexadecimalAndBinaryNumber/projects/1)  

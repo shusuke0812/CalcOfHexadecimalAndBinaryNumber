@@ -85,21 +85,26 @@ const getRadioValue = () => {
 // 加算
 tapAddBtn.addEventListener('click', () => {
 	const inputBaseId = "js-inputAny"
+	const inputNumMax = 10
 	if (radioSelected === "bin") {
 		// TODO:inputで入力のあるもののみ計算するように実装
-		for (let i=1; i<3; i++) {
+		for (let i=1; i<inputNumMax+1; i++) {
 			var inputId = inputBaseId + `${i}`
 			inputBinCalc = document.getElementById(inputId).value
-		  var num = parseInt(inputBinCalc, 2)
-			inputSum += num
+			if (inputBinCalc != "" && inputBinCalc != null) {
+		  	var num = parseInt(inputBinCalc, 2)
+				inputSum += num
+			}
 		}
 		inputSum = parseInt(inputSum, 10).toString(2)
 	} else {
-		for (let i=1; i<3; i++) {
+		for (let i=1; i<inputNumMax+1; i++) {
 			var inputId = inputBaseId + `${i}`
 			inputBinCalc = document.getElementById(inputId).value
-			var num = parseInt(inputBinCalc, 16)
-			inputSum += num
+			if (inputBinCalc != "" && inputBinCalc != null) {
+				var num = parseInt(inputBinCalc, 16)
+				inputSum += num
+			}
 		}
 		inputSum = parseInt(inputSum, 10).toString(16)
 	}
@@ -108,4 +113,6 @@ tapAddBtn.addEventListener('click', () => {
 	inputSum = 0
 })
 
-
+tapOrBtn.addEventListener('click', () => {
+	var checkValue = document.getElementById("js-inputAny1").value
+})

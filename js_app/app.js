@@ -17,7 +17,7 @@ const tapHexBtn = document.getElementById("js-tapHexBtn")
 
 const tapOrBtn = document.getElementById("js-tapOrBtn")
 const tapAndBtn = document.getElementById("js-tapAndBtn")
-const tapNotBtn = document.getElementById("js-tapAndBtn")
+const tapNotBtn = document.getElementById("js-tapNotBtn")
 const tapXorBtn = document.getElementById("js-tapXorBtn")
 const tapAddBtn = document.getElementById("js-tapAddBtn")
 
@@ -82,12 +82,107 @@ const getRadioValue = () => {
 	}
 }
 
+// TODO：下記の処理は演算以外同じなのでうまくまとめたい
+// 論理和
+tapOrBtn.addEventListener('click', () => {
+	const inputBaseId = "js-inputAny"
+	const inputNumMax = 10
+	if (radioSelected === "bin") {
+		for (let i=1; i<inputNumMax+1; i++) {
+			var inputId = inputBaseId + `${i}`
+			inputBinCalc = document.getElementById(inputId).value
+			if (inputBinCalc != "" && inputBinCalc != null) {
+		  	var num = parseInt(inputBinCalc, 2)
+				inputSum |= num
+			}
+		}
+		inputSum = parseInt(inputSum, 10).toString(2)
+	} else {
+		for (let i=1; i<inputNumMax+1; i++) {
+			var inputId = inputBaseId + `${i}`
+			inputBinCalc = document.getElementById(inputId).value
+			if (inputBinCalc != "" && inputBinCalc != null) {
+				var num = parseInt(inputBinCalc, 16)
+				inputSum |= num
+			}
+		}
+		inputSum = parseInt(inputSum, 10).toString(16)
+	}
+	document.getElementById("output").textContent = inputSum
+	console.log("[DEBUG]Calc result or: ", inputSum)
+	inputSum = 0
+})
+
+// 論理積
+tapAndBtn.addEventListener('click', () => {
+	const inputBaseId = "js-inputAny"
+	const inputNumMax = 10
+	if (radioSelected === "bin") {
+		for (let i=1; i<inputNumMax+1; i++) {
+			var inputId = inputBaseId + `${i}`
+			inputBinCalc = document.getElementById(inputId).value
+			if (inputBinCalc != "" && inputBinCalc != null) {
+		  	var num = parseInt(inputBinCalc, 2)
+				inputSum &= num
+			}
+		}
+		inputSum = parseInt(inputSum, 10).toString(2)
+	} else {
+		for (let i=1; i<inputNumMax+1; i++) {
+			var inputId = inputBaseId + `${i}`
+			inputBinCalc = document.getElementById(inputId).value
+			if (inputBinCalc != "" && inputBinCalc != null) {
+				var num = parseInt(inputBinCalc, 16)
+				inputSum &= num
+			}
+		}
+		inputSum = parseInt(inputSum, 10).toString(16)
+	}
+	document.getElementById("output").textContent = inputSum
+	console.log("[DEBUG]Calc result and: ", inputSum)
+	inputSum = 0
+})
+
+// 排他的論理和
+tapXorBtn.addEventListener('click', () => {
+	const inputBaseId = "js-inputAny"
+	const inputNumMax = 10
+	if (radioSelected === "bin") {
+		for (let i=1; i<inputNumMax+1; i++) {
+			var inputId = inputBaseId + `${i}`
+			inputBinCalc = document.getElementById(inputId).value
+			if (inputBinCalc != "" && inputBinCalc != null) {
+		  	var num = parseInt(inputBinCalc, 2)
+				inputSum ^= num
+			}
+		}
+		inputSum = parseInt(inputSum, 10).toString(2)
+	} else {
+		for (let i=1; i<inputNumMax+1; i++) {
+			var inputId = inputBaseId + `${i}`
+			inputBinCalc = document.getElementById(inputId).value
+			if (inputBinCalc != "" && inputBinCalc != null) {
+				var num = parseInt(inputBinCalc, 16)
+				inputSum ^= num
+			}
+		}
+		inputSum = parseInt(inputSum, 10).toString(16)
+	}
+	document.getElementById("output").textContent = inputSum
+	console.log("[DEBUG]Calc result xor: ", inputSum)
+	inputSum = 0
+})
+
+// ビット反転
+tapNotBtn.addEventListener('click', () => {
+	
+})
+
 // 加算
 tapAddBtn.addEventListener('click', () => {
 	const inputBaseId = "js-inputAny"
 	const inputNumMax = 10
 	if (radioSelected === "bin") {
-		// TODO:inputで入力のあるもののみ計算するように実装
 		for (let i=1; i<inputNumMax+1; i++) {
 			var inputId = inputBaseId + `${i}`
 			inputBinCalc = document.getElementById(inputId).value
@@ -109,10 +204,6 @@ tapAddBtn.addEventListener('click', () => {
 		inputSum = parseInt(inputSum, 10).toString(16)
 	}
 	document.getElementById("output").textContent = inputSum
-	console.log("[DEBUG]Calc result: ", inputSum)
+	console.log("[DEBUG]Calc result add: ", inputSum)
 	inputSum = 0
-})
-
-tapOrBtn.addEventListener('click', () => {
-	var checkValue = document.getElementById("js-inputAny1").value
 })

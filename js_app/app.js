@@ -173,7 +173,7 @@ tapXorBtn.addEventListener('click', () => {
 	inputSum = 0
 })
 
-// ビット反転
+// TODO：ビット反転
 tapNotBtn.addEventListener('click', () => {
 	
 })
